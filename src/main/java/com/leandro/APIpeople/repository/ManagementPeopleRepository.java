@@ -7,3 +7,5 @@ import com.leandro.APIpeople.entities.ManagementPeople;
 public interface ManagementPeopleRepository extends JpaRepository<ManagementPeople, Long> {
 
 }
+
+

@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "Peoples")
@@ -13,66 +14,66 @@ public class ManagementPeople {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Long Id;
+	private Long id;
 	@NotBlank
-	private String Name;
+	private String name;
+	@NotNull
+	private Long cpf;
 	@NotBlank
-	private String Cpf;
+	private String email;
 	@NotBlank
-	private String Email;
-	@NotBlank
-	private String Numero;
+	private String numero;
 	
 	public ManagementPeople () {
 		
 	}
-	
-	public ManagementPeople (Long Id, String Name, String Cpf, String Email, String Numero) {
-		this.Id = Id;
-		this.Name = Name;
-		this.Cpf = Cpf;
-		this.Email = Email;
-		this.Numero = Numero;
+
+	public ManagementPeople(Long id, String name, Long cpf, String email, String numero) {
+		this.id = id;
+		this.name = name;
+		this.cpf = cpf;
+		this.email = email;
+		this.numero = numero;
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
-	public String getCpf() {
-		return Cpf;
+	public Long getCpf() {
+		return cpf;
 	}
 
-	public void setCpf(String cpf) {
-		Cpf = cpf;
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	public String getNumero() {
-		return Numero;
+		return numero;
 	}
 
 	public void setNumero(String numero) {
-		Numero = numero;
+		this.numero = numero;
 	}
 	
 }

@@ -1,6 +1,7 @@
 package com.leandro.APIpeople.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,9 +25,9 @@ public class ManagemenPeoplecontroler {
 	private ManagementPeopleService managementPeopleService;
 
 	@PostMapping
-	List<ManagementPeople> create(@RequestBody ManagementPeople managementPeople) {
+	List<ManagementPeople> create(@RequestBody List<ManagementPeople> managementPeople) {
 
-		return managementPeopleService.create(managementPeople);
+		return managementPeopleService.createAll(managementPeople);
 	}
 
 	@GetMapping
@@ -34,7 +35,7 @@ public class ManagemenPeoplecontroler {
 		return managementPeopleService.list();
 	}
 
-	@PutMapping
+	@PutMapping ("/atualizacao")
 	List<ManagementPeople> update(@RequestBody ManagementPeople managementPeople) {
 		return managementPeopleService.update(managementPeople);
 	}
@@ -44,5 +45,14 @@ public class ManagemenPeoplecontroler {
 
 		return managementPeopleService.delete(id);
 	}
-
+	
+	@GetMapping("{name}")
+    public ManagementPeople buscarPorNome(@PathVariable ("name") String name) {
+        Optional<ManagementPeople> pessoa = managementPeopleService.buscarPorNome(name);
+        if (pessoa.isPresent()) {
+            return pessoa.get();
+        } else {
+            throw new RuntimeException("Pessoa não encontrada com nome: " + name);
+        }
+    }
 }
