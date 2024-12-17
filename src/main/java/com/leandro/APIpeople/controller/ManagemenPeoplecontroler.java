@@ -20,6 +20,8 @@ import com.itextpdf.text.DocumentException;
 import com.leandro.APIpeople.entities.ManagementPeople;
 import com.leandro.APIpeople.service.ManagementPeopleService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/ManagementPeoples")
 public class ManagemenPeoplecontroler {
@@ -29,7 +31,7 @@ public class ManagemenPeoplecontroler {
 	private ManagementPeopleService managementPeopleService;
 
 	@PostMapping
-	List<ManagementPeople> create(@RequestBody List<ManagementPeople> managementPeople) {
+	List<ManagementPeople> create(@RequestBody @Valid List<ManagementPeople> managementPeople) {
 
 		return managementPeopleService.createAll(managementPeople);
 	}

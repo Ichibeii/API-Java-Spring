@@ -34,10 +34,7 @@ public class ManagementPeopleService {
 
 	public List<ManagementPeople> list() {
 		
-		//ordenação por nome
-		
-		Sort sort = Sort.by("name").ascending();
-		return managementPeopleRepository.findAll(sort);
+		return managementPeopleRepository.findAll();
 	}
 
 	public List<ManagementPeople> update(ManagementPeople managementPeople) {
@@ -68,7 +65,7 @@ public class ManagementPeopleService {
         PdfWriter.getInstance(document, byteArrayOutputStream);
         document.open();
         
-        document.add(new Paragraph("Relatório de pessoas cadastradas"));
+        document.add(new Paragraph("Relatório de pessoas cadastradas:"));
         
         for (ManagementPeople managementPeople : managementPeoples) {
         	document.add(new Paragraph("\n"));
