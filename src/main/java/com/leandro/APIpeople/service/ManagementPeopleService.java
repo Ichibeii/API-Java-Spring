@@ -43,6 +43,9 @@ public class ManagementPeopleService {
 	}
 
 	public List<ManagementPeople> delete(Long id) {
+		if (!managementPeopleRepository.existsById(id)) {
+			throw new RuntimeException("Id não encontrado");
+		}
 		managementPeopleRepository.deleteById(id);
 		return list();
 	}
