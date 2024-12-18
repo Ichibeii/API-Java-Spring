@@ -85,7 +85,7 @@ Deletar um cadastro através do id passado.
 DELETE /ManagementPeoples/1
 ```
 
-## 5. ** GET /ManagementPeoples/{name}**
+## 5. **GET /ManagementPeoples/{name}**
 
 Buscar pelo nome de uma pessoa cadastrada
 
