@@ -36,7 +36,7 @@ Cria um novo cadastro de pessoa.
 }
 ```
 
-## 2. **Get /ManagementPeoples**
+## 2. **GET /ManagementPeoples**
 
 Lista de pessoas cadastradas.
 
@@ -85,17 +85,17 @@ Deletar um cadastro através do id passado.
 DELETE /ManagementPeoples/1
 ```
 
-## 5. ** GeT /ManagementPeoples/{name}
+## 5. ** GET /ManagementPeoples/{name}**
 
 Buscar pelo nome de uma pessoa cadastrada
 
 **Request**
 
 ```http
-ManagementPeoples/André Silva
+ManagementPeoples/Andre
 ```
 
-##Visualização do documento em PDF
+##Visualização do documento em PDF exemplo:
 
 ![Visualização em PDF](https://github.com/user-attachments/assets/3a620fb6-fd93-4713-a494-e5ad77538aab)
 
